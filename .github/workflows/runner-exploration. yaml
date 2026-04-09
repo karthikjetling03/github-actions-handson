@@ -1,0 +1,22 @@
+name: Runner Exploration
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  validation-job:
+    steps:
+      runs-on: ubuntu-latest
+      steps:
+        - name: What is installed?
+          run: |
+            echo "checking the installed softwares version"
+            python --version
+            terraform --version
+            aws --version
+            docker --version
+            ansible --version
+            unzip --version
+            jq --version
+            which unzip
+            which jq
