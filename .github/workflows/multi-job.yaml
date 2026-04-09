@@ -1,0 +1,23 @@
+name: Parallel Jobs
+
+on:
+    workflow_dispatch:
+
+jobs:
+    job-one:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: step A
+              run: |
+                  echo "Job 1 is starting a long process"
+                  sleep 20
+                  echo "Job 1 is finished"
+
+    job-two:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: step B
+              run: |
+                  echo "Job 2 is running!"
