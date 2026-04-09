@@ -14,7 +14,5 @@ jobs:
           aws --version
           docker --version
           ansible --version
-          unzip --version
-          jq --version
           which unzip
           which jq
