@@ -7,7 +7,7 @@ on:
 jobs:
     logic-test:
         runs-on: ubuntu-latest
-        if: github.actor == 'karthik03'
+        if: github.actor == 'karthikjetling03'
         steps:
             - name: greet boss
               run: echo "Hey, Boss! How are you doing?"
@@ -25,3 +25,4 @@ jobs:
             - name: PR Only Message
               if: github.event_name == 'pull_request'
               run: echo "This message is for PR reviews only"
+              
