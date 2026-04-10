@@ -1,0 +1,17 @@
+name: Reusable Linter
+
+on:
+    workflow_call:
+        inputs:
+            target-dir:
+                required: true
+                type: string
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: linting
+              run: |
+                echo "Linting the directory: ${{ inputs.target-dir }}"
