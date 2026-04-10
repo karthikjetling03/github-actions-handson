@@ -1,0 +1,32 @@
+name: Artifacts Upload and Download Test
+
+on:
+    workflow_dispatch:
+
+jobs:
+    generator:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Create File
+              run: echo "This is my secret data" > secret_data.txt
+
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: my-secret-data
+                path: secret_data.txt
+        
+    receiver:
+        runs-on: ubuntu-latest
+        needs: generator
+        steps:
+            - name: Download file
+              uses: actions/download-artifact@v4
+              with:
+                name: my-secret-data
+
+            - name: check if file exist
+              run: ls -la
+
+            - name: read file
+              run: cat secret_data.txt
